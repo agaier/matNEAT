@@ -1,4 +1,4 @@
-function hpc_neat(hypName, jobID)
+function hpc_neat(hypName, runID)
 % Sample matlab script to be run on cluster - [RUN THROUGH QSUB]
 %
 % Syntax:  qsub -N Neat -t 1-3 -v hypName=NeatParams sb_hpc_neat.sh
@@ -28,7 +28,7 @@ disp('Running Job')
 
 % Load hyperparameters
 load([hypName '.mat'],'p','d');
-p.name = [hypName 'Trial_' jobID];
+p.name = [hypName 'Trial_' runID];
 p.vis = false;
 
 % Run Algorithm
