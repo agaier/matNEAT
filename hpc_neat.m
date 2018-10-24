@@ -28,7 +28,7 @@ disp('Running Job')
 
 % Load hyperparameters
 load([hypName '.mat'],'p','d');
-p.name = [hypName 'Trial_' runID];
+p.name = [hypName 'Trial_' int2str(runID)];
 p.vis = false;
 
 % Run Algorithm
@@ -36,7 +36,7 @@ disp(['Starting experiment: ' p.name]);
 rec = matNeat(p,d);
 
 % Save results
-save(p.name, 'rec','p','d')
+save(['result/' p.name], 'rec','p','d')
 
 %%
 disp(['Runtime: ' seconds2human(toc(runTime))]);
